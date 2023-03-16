@@ -1,6 +1,6 @@
 package com.starmediadev.starclock.snapshot;
 
-import com.starmediadev.starlib.clock.Clock.CountOperation;
+import com.starmediadev.starclock.Clock.CountOperation;
 
 public abstract class ClockSnapshot {
     protected final long time;
