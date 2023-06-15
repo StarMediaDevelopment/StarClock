@@ -78,9 +78,9 @@
     </dependencies>
     <distributionManagement>
         <repository>
-            <id>starmediadev-maven</id>
+            <id>github</id>
             <name>Star Media Development LLC Maven</name>
-            <url>https://repo.starmediadev.com/snapshots</url>
+            <url>https://maven.pkg.github.com/StarMediaDevelopment/StarClock</url>
         </repository>
     </distributionManagement>
 </project>
