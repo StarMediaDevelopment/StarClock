@@ -67,13 +67,4 @@
             </resource>
         </resources>
     </build>
-
-    <dependencies>
-        <dependency>
-            <groupId>com.starmediadev</groupId>
-            <artifactId>starlib</artifactId>
-            <version>${starlib.version}</version>
-            <scope>compile</scope>
-        </dependency>
-    </dependencies>
 </project>

@@ -1,28 +1,20 @@
 package com.starmediadev.starclock.impl;
 
 import com.starmediadev.starclock.Clock;
-import com.starmediadev.starclock.callback.ClockCallback;
 import com.starmediadev.starclock.snapshot.StopwatchSnapshot;
 
+/**
+ * This is your typical count-up type of clock. <br>
+ * The {@link Clock#addTime(long)} adds time as if it had counted that time <br>
+ * The {@link Clock#removeTime(long)} method removes time as if it had not counted that amount of time. <br>
+ * The {@link Clock#setTime(long)} method sets the current time and the stopwatch will count-up starting with the new value.
+ */
 public class Stopwatch extends Clock<StopwatchSnapshot> {
     
     private long endTime;
     
     public Stopwatch(long endTime, long countAmount) {
-        this(0L, endTime, countAmount, null, 0L);
-    }
-    
-    public Stopwatch(long endTime) {
-        this(0L, endTime, getGlobalCountAmount(), null, 0L);
-    }
-    
-    public Stopwatch(long startTime, long endTime, long countAmount, ClockCallback<StopwatchSnapshot> callback, long interval) {
-        super(startTime, CountOperation.UP, countAmount, callback, interval);
-        this.endTime = endTime;
-    }
-    
-    public Stopwatch(long startTime, long endTime, ClockCallback<StopwatchSnapshot> callback, long interval) {
-        super(startTime, CountOperation.UP, getGlobalCountAmount(), callback, interval);
+        super(0L, CountOperation.DOWN, countAmount);
         this.endTime = endTime;
     }
     
@@ -32,14 +24,29 @@ public class Stopwatch extends Clock<StopwatchSnapshot> {
     }
     
     @Override
+    public void count() {
+        if (this.time <= this.endTime) {
+            super.count();
+        }
+    }
+    
+    @Override
     public Stopwatch start() {
         return (Stopwatch) super.start();
     }
     
+    /**
+     * @return The time that this clock will end at. This will simply stop calling the Callbacks until the time value is changed to be lower
+     */
     public long getEndTime() {
         return endTime;
     }
     
+    /**
+     * Sets the new endTime of this Stopwatch. <br>
+     * If the new endTime is less that the previous one, this does nothing. If it is more, the Stopwatch will continue
+     * @param endTime The new endTime
+     */
     public void setEndTime(long endTime) {
         this.endTime = endTime;
     }
