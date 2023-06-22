@@ -13,6 +13,11 @@ public class Stopwatch extends Clock<StopwatchSnapshot> {
     
     private long endTime;
     
+    /**
+     * Constructs a new Stopwatch
+     * @param endTime The end time of the stopwatch. This is how many milliseconds that the clock should count to, and not the timestamp
+     * @param countAmount The count amount. See the {@link Clock} documentation for how this works
+     */
     public Stopwatch(long endTime, long countAmount) {
         super(0L, CountOperation.DOWN, countAmount);
         this.endTime = endTime;

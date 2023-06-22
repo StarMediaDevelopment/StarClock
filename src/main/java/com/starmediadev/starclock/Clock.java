@@ -256,6 +256,14 @@ public abstract class Clock<T extends ClockSnapshot> {
         return null;
     }
     
+    /**
+     * This resets the CallbackHolder status flag to true to allow them to run again. <br>
+     * See {@link CallbackHolder#getStatus()} for more information
+     */
+    public void resetCallbackStatus() {
+        this.callbacks.values().forEach(holder -> holder.setStatus(true));
+    }
+    
     public enum CountOperation {
         UP, DOWN
     }

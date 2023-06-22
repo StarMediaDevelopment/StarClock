@@ -1,7 +1,12 @@
 package com.starmediadev.starclock.snapshot;
 
 import com.starmediadev.starclock.Clock.CountOperation;
+import com.starmediadev.starclock.impl.Timer;
 
+/**
+ * The snapshot corresponding to {@link Timer}'s <br>
+ * Please see {@link ClockSnapshot} for more information
+ */
 public class TimerSnapshot extends ClockSnapshot {
     
     protected final long length;

@@ -14,6 +14,11 @@ public class Timer extends Clock<TimerSnapshot> {
     
     protected long length;
     
+    /**
+     * Constructs a new Timer
+     * @param length The starting length of the timer
+     * @param countAmount The count amount. See the {@link Clock} documentation for how this works
+     */
     public Timer(long length, long countAmount) {
         super(length, CountOperation.DOWN, countAmount);
         this.length = length;
